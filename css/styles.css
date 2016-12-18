@@ -1,0 +1,15 @@
+input[type="text"] {
+	float:right;
+	width: 65%;
+	border-radius: 4px;
+	border: 1px solid black;
+	margin-right: 1.2%;
+}
+
+img.sample {
+	width: 30%;
+	height: 30%;
+	padding-left: 1.2%;
+	margin: 1%;
+	float: left;
+}

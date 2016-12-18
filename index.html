@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Image gallery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="css/styles.css">
+	<link type="text/css" rel="stylesheet" href="css/lightbox.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+
+<body>
+	<input type="text" name="search" placeholder="Search(16 pt)" id="filter-search">
+	<br>
+	<br>
+	<div id="images">
+		<a href="photo_gallery_v3/photos/01.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/01.jpg" alt="img 1" class="sample"></a>
+		<a href="photo_gallery_v3/photos/02.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/02.jpg" alt="img 2" class="sample"></a>
+		<a href="photo_gallery_v3/photos/03.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/03.jpg" alt="img 3" class="sample"></a>
+		<a href="photo_gallery_v3/photos/04.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/04.jpg" alt="img 4" class="sample"></a>
+		<a href="photo_gallery_v3/photos/05.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/05.jpg" alt="img 5" class="sample"></a>
+		<a href="photo_gallery_v3/photos/06.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/06.jpg" alt="img 6" class="sample"></a>
+		<a href="photo_gallery_v3/photos/07.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/07.jpg" alt="img 7" class="sample"></a>
+		<a href="photo_gallery_v3/photos/08.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/08.jpg" alt="img 8" class="sample"></a>
+		<a href="photo_gallery_v3/photos/09.jpg" data-lightbox="gallery"><img src="photo_gallery_v3/photos/09.jpg" alt="img 9" class="sample"></a>
+	</div>
+	<script type="text/javascript">
+		(function() {
+	  			var $imgs = $('#images img');
+	  			var $search = $('#filter-search');
+	  			var cache = [];
+
+				  $imgs.each(function() {
+				    cache.push({
+				      element: this,
+				      text: this.alt.trim().toLowerCase()
+				    })
+				  })
+
+			  function filter() {
+			    var query = this.value.trim().toLowerCase();
+			    cache.forEach(function(img) {
+			      var index = 0;
+			      if (query) {
+			        index = img.text.indexOf(query);
+			      }
+			      img.element.style.display = index === -1 ? 'none' : '';
+			    })
+			  }
+			  if ('oninput' in $search[0]) {
+			    $search.on('input', filter);
+			  } else {1
+			    $search.on('keyup', filter);
+			  }
+			}())
+	</script>
+</body>
+</html>
